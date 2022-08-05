@@ -126,7 +126,7 @@
 									<a href="{% url 'login' %}"> <img src="{{x.m_flyer.url}} "class="zoom"></a>
 									{{i.m_title}}  posted on:{{i.posted_date}}
 									  posted by: {{x.posted_by}}  
-								<a href="{% url 'fav' i.id  %}">	<img src="{% static 'finalproject1/like1.png' %}" alt="" style="height:5%; width: 5%;"></a>
+								{% comment %} <a href="{% url 'fav' i.id  %}">	<img src="{% static 'finalproject1/like1.png' %}" alt="" style="height:5%; width: 5%;"></a> {% endcomment %}
 								</div>
 								{% endfor %}
 							</div>
