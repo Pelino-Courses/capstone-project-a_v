@@ -1,0 +1,184 @@
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'finalproject1/fontawesome/css/all.css' %}">
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{% static 'finalproject1/fonts/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'finalproject1/stylet.css' %}">
+		
+<style>
+    fieldset{
+        margin: 0 auto;
+        background-color: rgba(237, 243, 240, 0.87);
+        width: 40%;
+        height: 140%;
+        display: inline;
+        border: 2px;
+        box-shadow: black;
+        border-radius: 10px;
+        align-content: center;
+        justify-content:center;
+        margin: 10 10 0 350px;
+        float: center;
+        top: 100px;
+    }
+    legend{
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin: auto;
+    }
+    input[type=text], input[type=date] {
+        width: 50%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+    input[type=submit],  input[type=reset]{
+        background-color:black;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    
+    }
+    
+body{
+  
+    background-image: url("{% static 'finalproject1/background.jpg' %}");
+                  background-repeat: no-repeat;
+                  background-size: 110%;
+                  overflow-x: hidden;
+  }
+
+   </style> 
+
+</head>
+<body>
+    <div id="posting">
+    <div id="site-content">
+        <header class="site-header">
+            <div class="container">
+                <a href="{% url 'index'  %}" id="branding">
+                    <img src="{% static 'finalproject1/logo.png' %}" alt="" class="logo">
+                    <div class="logo-copy">
+                        <h1 class="site-title">Cinemania </h1>
+                        <small class="site-description">Movies</small>
+                        <p> Welcome, {{request.user.first_name}} {{request.user.last_name}}</p>
+                    </div>
+                </a> <!-- #branding -->
+
+                <div class="main-navigation">
+                    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                    <ul class="menu">
+                        <li class="menu-item current-menu-item"><a href="{% url 'index'  %}">Home</a></li>
+                        <li class="menu-item"><a href="{% url 'about'  %}">About Us</a></li>
+                       </ul> <!-- .menu -->
+                       <form action="#" class="search-form">
+                         
+                        <input type="text" placeholder="Search...">
+                        <button>Search</button>
+                    </form>
+                </div><br><br><br><br>
+                <hr style="width: 100% ;border:2%;">
+<div class="movie">
+<form action="{% url 'post' %}" method="POST" enctype="multipart/form-data">
+    {%  csrf_token %}
+    <fieldset>
+        <legend>Add Post</legend><br><br><br>
+        <center><label for="Title">Title:</label><br>
+        <input type="text" id=" "name="title"><br><br>
+        <label for="">Released_date:</label><br>
+        <input type="date" id="" name="release_date"><br><br>
+        <label for="text">Main_Actor(s):</label><br>
+        <input type="text" id="" name="actor"><br><br>
+        <label for="text">Genre:</label><br>
+        <input type="text" id="" name="genre"><br><br>
+        <label for="text">Movie Trailer:</label><br>
+        <input type="text" id="" name="trailer"><br><br>
+        <label for="text">Upload Movie:</label><br>
+        <input type="file" id="myFile" name="upload"><br><br>
+       
+        <label for="file">Movie Poster:</label>
+        <input type="file" id="myFile" name="poster"><br><br>
+        Description:<br>
+        <textarea name="description" id="" cols="20" rows="10"></textarea><br><br>
+        <input type="submit"value="Submit">
+        <input type="reset"value="Reset"><br><br><br><br>
+            <br><br><br>
+        </center>
+
+
+
+    </fieldset>
+</form>
+</div>
+</div>
+<hr style="width: 100% ;border:2%;">
+<footer class="site-footer">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-2">
+               <div class="widget">
+                   <h3 class="widget-title">About Us</h3>
+                   <p>As Cinemania company we  are here for delivering good quality product in efficient and effective manner</p>
+               </div>
+           </div>
+           <div class="col-md-2">
+               <div class="widget">
+                   
+               </div>
+           </div>
+           <div class="col-md-2">
+               <div class="widget">
+                   <h3 class="widget-title">Contact Us</h3>
+                   <ul class="no-bullet">
+                       <li><a href="#">0780567894</a></li>
+                       <li><a href="#">0724089765</a></li>
+                       <li><a href="#">0788900987</a></li>
+                       
+                   </ul>
+               </div>
+           </div>
+           <div class="col-md-2">
+               <div class="widget">
+                   
+               </div>
+           </div>
+           <div class="col-md-2">
+               <div class="widget">
+                   <h3 class="widget-title">Social Media</h3>
+                   <ul class="no-bullet">
+                       <li><a href="#">Facebook</a></li>
+                       <li><a href="#">Twitter</a></li>
+                       <li><a href="#">Instagram</a></li>
+                       
+                   </ul>
+               </div>
+           </div>
+           <div class="col-md-2">
+               <div class="widget">
+                   
+               </div>
+           </div>
+       </div> <!-- .row -->
+
+       <center><div class="colophon">&copy; Copyright 2022 Cinemania by A_V</div>
+   </div></center> <!-- .container -->
+
+</footer>
+<script src="{% static 'finalproject1/js/jquery-1.11.1.min.js' %}"></script>
+<script src="{% static 'finalproject1/js/plugins.js' %}"></script>
+<script src="	{% static 'finalproject1/js/app.js' %}"></script>
+
+</div>
+</body>
+</html>
