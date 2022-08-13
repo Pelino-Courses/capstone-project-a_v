@@ -1,0 +1,203 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		
+		<title>Cinemania Movie </title>
+
+		<!-- Loading third party fonts -->
+		
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'stylet.css' %}">
+		
+		
+        <style>
+            .log_site {
+   
+     
+   margin-right: -50%;            
+
+} 
+body{
+  
+    background-image: url("{% static 'background.jpg' %}");
+                  background-repeat: no-repeat;
+                  background-size: 110%;
+                  overflow-x: hidden;
+
+  }
+
+.forms{
+	/* height: 200%;*/
+	width: 130%; 
+	padding: 15%;
+	background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(253, 250, 252, 0)),url("{% static 'i4.jpeg' %}");
+                  background-repeat: no-repeat;
+                  background-size: 99%;
+				  
+				  
+	
+}
+
+.zoom:hover{
+    transform: scale(1.5);
+  }
+
+        </style>
+
+	</head>
+
+
+	<body>
+        
+		
+
+		<div id="site-content">
+			<header class="site-header">
+				<div class="container">
+					<a href="{% url 'index'  %}" id="branding">
+						<img src="{% static 'logo.png' %}" alt="" class="logo">
+						<div class="logo-copy">
+							<h1 class="site-title">Cinemania </h1>
+							<small class="site-description">Movies</small>
+						</div>
+					</a> 
+
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="{% url 'index'  %}">Home</a></li>
+							<li class="menu-item"><a href="{% url 'about' %}">About Us</a></li>
+							
+							<li class="menu-item"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+						</ul> <!-- .menu -->
+
+						<form action="#" class="search-form">
+							<input type="text" placeholder="Search...">
+							<button>Search</button>
+						</form>
+					</div><!-- .main-navigation -->
+                   
+					<div class="mobile-navigation"></div>
+				</div>
+			</header>
+		
+			<main class="main-content">
+				<div class="container">
+						
+					<div class="page">
+						<div class="row">
+							<div class="col-md-9">
+								<div class="slides">
+									
+      
+			
+		<div class="forms">		
+	
+		<p><b><h2 style="color: black;"> It is not Our Abilities that show what we truly are.
+			It is our choice
+		</h2>
+	<center>	<button style="background-color: transparent; width: 30%;"><a href="{% url 'login' %}" style="text-decoration: none; color: #ffaa3c;"><b>Get Started</b> </a></button>
+	</b></p></center>
+	
+		</div><br>
+								</div>
+                                
+							</div>
+                            
+							<div class="col-md-3"id="about">
+                              <div class="row">
+								
+									
+								</div>
+								
+							</div>
+						</div> <!-- .row -->
+						{%  csrf_token %}
+						<center><h3 style="color: black; ">Recent Added</h3></center>
+						<div class="row">
+							<div class="col-lg-12" style="display: flex; gap: 20px;  border:0px solid red">
+								{% for x in i  %}
+
+								<div class="latest-movie col-lg-4" style="margin: 0 7px; border: 0px solid red; color: black; " >
+    
+									<a href="{% url 'login' %}"> <img src="{{x.m_flyer.url}} "class="zoom" style="height:70% ;"></a>
+								<b>	{{x.m_title}}  posted on:{{x.posted_date}}
+									  posted by: {{x.posted_by}}  </b>
+								
+								</div>
+								{% endfor %}
+							</div>
+							
+						<!-- .container -->
+			</main><br>
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">About Us</h3>
+								<p>As Cinemania company we  are here for delivering good quality product in efficient and effective manner</p>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Contact Us</h3>
+								<ul class="no-bullet" style="list-style: none ;">
+									<li><a href="#">0780567894</a></li>
+									<li><a href="#">0724089765</a></li>
+									<li><a href="#">0788900987</a></li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Social Media</h3>
+								<ul class="no-bullet" style="list-style: none ;">
+									<li><a href="https://www.facebook.com/">Facebook</a></li>
+									<li><a href="https://twitter.com/home">Twitter</a></li>
+									<li><a href="https://www.instagram.com/">Instagram</a></li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								
+							</div>
+						</div>
+					</div> <!-- .row -->
+
+					<center><div class="colophon">&copy; Copyright 2022 Cinemania by A_V</div>
+				</div></center> <!-- .container -->
+
+			</footer>
+		</div>
+		<!-- Default snippet for navigation -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+
+
+		
+		
+	</body>
+
+</html>

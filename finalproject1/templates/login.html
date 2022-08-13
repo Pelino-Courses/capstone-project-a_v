@@ -1,0 +1,100 @@
+{%  load static %}
+<html>
+    <head>
+    <title> cinemania </title>
+    <style>
+        fieldset{
+            margin: 0 auto;
+            background-color: rgba(237, 243, 240, 0.87);
+            width: 40%;
+            height: 72%;
+            display: inline;
+            border: 2px;
+            box-shadow: black;
+            border-radius: 10px;
+            align-content: center;
+            justify-content:center;
+            margin: 10 10 0 350px;
+            float: center;
+           margin-bottom: 10%;
+}
+
+    
+legend{
+background-color: black;
+color: white;
+padding: 5px 10px;
+border-radius: 15px;
+margin: auto;
+}
+input[type=text]{
+width: 200px;
+padding: 5px;
+margin: auto;}
+input[type=password]{
+width: 200px;
+padding: 5px;
+margin: auto;}
+input[type=submit]{
+background-color: rgba(8, 20, 13, 0.986);   
+width: 114px;
+padding: 3px;
+font-weight: bold;
+color: white;}
+button{
+    background-color: black;   
+width: 120px;
+padding: 7px;
+font-weight: bold;
+color: white;
+text-decoration: none;
+border-radius: 5px;  
+}
+a{
+   
+    color: black;
+    font-weight: bold;
+    width: 125px;
+    padding: 5%;
+    text-align: auto;
+}
+.form{
+  background-color: transparent;
+  margin-top: 10%;
+}
+body{
+  
+  background-image: url("{% static 'background.jpg' %}");
+                background-repeat: no-repeat;
+                background-size: 110%;
+}
+    </style>
+</head>
+    <body>
+        
+        <h1></h1>
+        <div class="form">
+        <form action="{% url 'login'  %}" method="POST">
+            {%  csrf_token %}
+            <fieldset>
+                <legend>Capstone Login</legend><br><br>
+            
+           <center><B>USER NAME OR EMAIL:</B>  <br>
+            <input type="text" name="user_name"><br><br>
+           <B>PASSWORD:</B>  <br>
+            <input type="password" name="psw"><br><br><br>
+            <!--<input type="submit" value="Sign In">-->
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button>Log In</a></button><br><br>
+            <a href="#">Forget Password?</a>
+             <br> <br> <br>
+             {% for message  in messages %}
+             <p> {{message}}</p>
+             {% endfor %}
+            <input type="checkbox"> Remember Username
+            <a href="{% url 'signin' %}"><u> <b>Sign Up</b> </u> </a><br><br></center>
+
+        </fieldset>
+        </form></div>
+    </body>
+</html>
