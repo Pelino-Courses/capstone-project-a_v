@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    
+    <title>Dashboard</title>
+   
+		
+
+		<!-- Loading third party fonts -->
+		
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'stylet.css' %}">
+		
+</head>
+        <style>
+*{
+    margin:0;
+}
+
+.log_site {
+   
+     
+   margin-right: -50%;            
+
+} 
+body{
+  
+    background-image: url("{% static 'background.jpg' %}");
+                  background-repeat: no-repeat;
+                  background-size: 110%;
+                  overflow-x: hidden;
+
+  }
+  .posts .back{
+    width: 50%;
+    height: 50%;
+    background-color: blue;
+    border: 2%;
+  }
+  .posts>a{
+    background-color: aliceblue;
+    width: 5%;
+    border: 2%;
+    display: inline-blocks;
+  }
+  .posts>ul{
+    list-style: none;
+  }
+  .zoom:hover{
+    transform: scale(1.5);
+  }
+
+
+</style>
+
+	</head>
+
+    <body>
+     
+        {%  csrf_token %}
+        <div id="site-content">
+			<header class="site-header">
+				<div class="container">
+					<a href="{% url 'index'  %}" id="branding">
+						<img src="{% static 'logo.png' %}" alt="" class="logo">
+						<div class="logo-copy">
+							<h1 class="site-title">Cinemania </h1>
+							<small class="site-description">Movies</small>
+                            <p> Welcome, {{request.user.first_name}} {{request.user.last_name}}</p>
+						</div>
+					</a> <!-- #branding -->
+
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="{% url 'dashboard'  %}">Home</a></li>
+							<li class="menu-item"><a href="{% url 'about'  %}">About Us</a></li>
+							
+							
+							
+						</ul> <!-- .menu -->
+
+						<form action="{% url 'search' %}" method="post" class="search-form">  {% csrf_token %}
+                         
+							<input type="text" name="find"required placeholder="Search...">
+							<button type="submit">Search</button>
+						</form>
+					</div><br><br><br><br>
+                    <hr style="width: 500% ;border:2%;"><br>
+          <div class="post"><h3>Cinemania Dashboard</h3>
+        <div class="posts" style="background-color: transparent;"> <img src="{{user.signin.Avatar.url}}" height="20%" width="20%" alt="">
+        <ul><li><a href="{% url 'dashboard'  %}">Dashboard</a></li> <br>
+            <li><a href="{% url 'profile1' %}">Profile</a></li><br>
+            <li>
+            <a href="{% url 'about'  %}"> About Us</a>
+        </li> <br>
+    <li><a href="{% url 'contact_us' %}"> Contact Us</a></li><br>
+  
+    <li><a href="{% url 'post1'  %}"> Add Post</a></li> <br><br><br>
+    <li><a href="{% url 'logout'  %}"> Logout</a></li>
+</ul></div>
+<center>
+<div class="back" style="margin-top: -35%; width: 40%; height:auto;">
+    <h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: white;  "> Play Ground</h2>
+    
+    
+    <video controls width="800px" height="400px" src="{{i.movie.url}}"></video> 
+    <div class="titles" style="background-color:  white ; width: 175%; color: black;">
+       
+        <b> {{i.m_title}}
+    &nbsp;&nbsp;&nbsp; Uploaded on: {{i.posted_date}} </b></div> </div></center></div> 
+      <br><br><br><br>   
+                       
+     <hr style="width: 500% ;border:2%;">
+     <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">About Us</h3>
+                        <p>As Cinemania company we  are here for delivering good quality product in efficient and effective manner</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Contact Us</h3>
+                        <ul class="no-bullet">
+                            <li><a href="#">0780567894</a></li>
+                            <li><a href="#">0724089765</a></li>
+                            <li><a href="#">0788900987</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">Social Media</h3>
+                        <ul class="no-bullet">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        
+                    </div>
+                </div>
+            </div> <!-- .row -->
+
+            <center><div class="colophon">&copy; Copyright 2022 Cinemania by A_V</div>
+        </div></center> <!-- .container -->
+
+    </footer>
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="	{% static 'js/app.js' %}"></script>
+    
+</div>
+</body>
+</html>

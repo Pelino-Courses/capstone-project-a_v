@@ -1,9 +1,9 @@
 ![Open in Codespaces](https://classroom.github.com/assets/open-in-codespaces-abfff4d4e15f9e1bd8274d9a39a0befe03a0632bb0f153d0ec72ff541cedbe34.svg)
 # Final_project - Interactive Web Final Project
 
-Group name:
-Member one: 
-Member two:
+Group name:A_V
+Member one: NIYOMUBYEYI ANGELIQUE 220007628
+Member two: NIYINDERERA VALENTINE 220006908
 
 ## Case Study
 
@@ -27,4 +27,4 @@ PS: I need to see commits from all members of the project team.
 
 For more info and assistance you can always reach me via MS Teams.
 
-
+MY APP https://nacinemania.herokuapp.com/
